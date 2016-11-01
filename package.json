@@ -1,0 +1,22 @@
+{
+  "name": "webrtc-test-auth-service",
+  "version": "1.0.0",
+  "description": "TURN auth service",
+  "main": "app/index.js",
+  "scripts": {
+    "start": "node app/index.js"
+  },
+  "author": "Dmitry Toropchin",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "lodash": "^4.16.4",
+    "mongoose": "^4.6.3",
+    "morgan": "^1.7.0",
+    "nconf": "^0.8.4",
+    "randomstring": "^1.1.5"
+  }
+}

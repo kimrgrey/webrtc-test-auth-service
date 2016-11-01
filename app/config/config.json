@@ -1,0 +1,38 @@
+{
+  "db": {
+    "connection": "mongodb://127.0.0.1:27017",
+    "name": "coturn",
+    "options": {
+      "server": {
+        "socketOptions": {
+          "keepAlive": 1
+        }
+      }
+    }
+  },
+  "token": {
+    "refreshRate": 86400
+  },
+  "auth": {
+    "expirationRate": 86400,
+    "delimeter": ":"
+  },
+  "servers": {
+    "turn": [
+      {
+        "url": "turn:127.0.0.1:3478?transport=udp"
+      },
+      {
+        "url": "turn:127.0.0.1:3478?transport=tcp"
+      },
+      {
+        "url": "turns:127.0.0.1:5349?transport=tcp"
+      }
+    ],
+    "stun": [
+      {
+        "url": "stun:127.0.0.1:3478"
+      }
+    ]
+  }
+}
