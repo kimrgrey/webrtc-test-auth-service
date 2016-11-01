@@ -13,9 +13,9 @@ const generate = (user) => {
 
         const timestamp = parseInt(Date.now() / 1000) + auth.expirationRate;
         const username = [timestamp, user].join(auth.delimeter);
-        const hmac = crypto.createHmac('sha1', secret.value);
+        const hmac = crypto.createHmac(auth.alg, secret.value);
 
-        hmac.setEncoding('base64');
+        hmac.setEncoding(auth.encoding);
         hmac.write(username);
         hmac.end();
 

@@ -15,7 +15,9 @@
   },
   "auth": {
     "expirationRate": 86400,
-    "delimeter": ":"
+    "delimeter": ":",
+    "alg": "sha1",
+    "encoding": "base64"
   },
   "servers": {
     "turn": [
