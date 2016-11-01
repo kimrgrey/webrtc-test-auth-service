@@ -8,9 +8,9 @@ router.route('/')
     const { username } = request.query;
 
     iceServers.generate(username)
-      .then(ice => {
-        if (ice) {
-          responce.json({ iceServers: ice });
+      .then(({ iceServers, expires }) => {
+        if (iceServers) {
+          responce.json({ iceServers, expires });
         }
         else {
           console.log('secret not found');

@@ -32,7 +32,7 @@ const generate = (user) => {
           },
         ];
 
-        return { iceServers };
+        return { iceServers, expires: timestamp };
       }
 
       return null;
