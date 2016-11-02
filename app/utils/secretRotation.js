@@ -4,9 +4,14 @@ const TurnSecret = require('../models/turnSecret');
 
 
 const regenerate = () => {
+  const token = config.get('token');
+
   TurnSecret.remove()
     .then(()   => {
-      const newSecret = new TurnSecret({ value: randomstring.generate(20) });
+      const newSecret = new TurnSecret({
+        realm: token.realm,
+        value: randomstring.generate(20)
+      });
       return newSecret.save();
     })
     .then(()   => {
