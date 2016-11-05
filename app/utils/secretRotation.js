@@ -1,4 +1,4 @@
-const randomstring = require('randomstring');
+const crypto = require('crypto');
 const config = require('../config');
 const TurnSecret = require('../models/turnSecret');
 
@@ -10,7 +10,7 @@ const regenerate = () => {
     .then(()   => {
       const newSecret = new TurnSecret({
         realm: token.realm,
-        value: randomstring.generate(20)
+        value: crypto.randomBytes(48).toString('base64')
       });
       return newSecret.save();
     })
