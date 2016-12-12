@@ -4,8 +4,8 @@ const config  = require('../config');
 const TurnSecret = require('../models/turnSecret');
 
 
-const generate = (user) => {
-  return TurnSecret.current()
+const generate = (user, realm) => {
+  return TurnSecret.current(realm)
     .then(secret => {
       if (secret) {
         const auth = config.get('auth');

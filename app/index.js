@@ -16,7 +16,7 @@ application.use(logger);
 application.use(cors());
 application.use(bodyParser.urlencoded({ extended: true }));
 application.use(bodyParser.json());
-application.use('/', authRouter);
+application.use(authRouter);
 
 const applicationHost = process.env.WEBRTC_HOST ||
                         process.env.HOST ||

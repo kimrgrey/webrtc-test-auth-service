@@ -12,7 +12,10 @@
   },
   "token": {
     "refreshRate": 86400,
-    "realm": "realmnamehere"
+    "realms": [
+      "realm1",
+      "realm2"
+    ]
   },
   "auth": {
     "expirationRate": 86400,

@@ -15,8 +15,8 @@ const TurnSecretSchema = new Schema({
 });
 
 TurnSecretSchema.statics = {
-  current() {
-    return this.findOne().exec();
+  current(realm) {
+    return this.findOne({ realm }).exec();
   },
 };
 

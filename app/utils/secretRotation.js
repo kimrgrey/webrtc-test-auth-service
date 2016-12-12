@@ -8,14 +8,18 @@ const regenerate = () => {
 
   TurnSecret.remove()
     .then(()   => {
-      const newSecret = new TurnSecret({
-        realm: token.realm,
-        value: crypto.randomBytes(48).toString('base64')
+      const secrets = token.realms.map(realm => {
+        const newSecret = new TurnSecret({
+          realm: realm,
+          value: crypto.randomBytes(48).toString('base64')
+        });
+        return newSecret.save();
       });
-      return newSecret.save();
+
+      return Promise.all(secrets);
     })
     .then(()   => {
-      console.log('secret regenerated');
+      console.log('secrets regenerated');
     })
     .catch(err => {
       console.log(err);

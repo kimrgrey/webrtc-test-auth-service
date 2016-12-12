@@ -5,12 +5,12 @@ const router = express.Router();
 
 router.route('/')
   .get((request, responce, next) => {
-    const { username } = request.query;
+    const { username, realm = '' } = request.query;
 
-    iceServers.generate(username)
-      .then(({ iceServers, expires }) => {
-        if (iceServers) {
-          responce.json({ iceServers, expires });
+    iceServers.generate(username, realm)
+      .then(connectionConfig => {
+        if (connectionConfig) {
+          responce.json(connectionConfig);
         }
         else {
           console.log('secret not found');
@@ -18,7 +18,7 @@ router.route('/')
         }
       })
       .catch(er => {
-        console.log(e);
+        console.log(er);
         responce.sendStatus(400);
       });
   });
